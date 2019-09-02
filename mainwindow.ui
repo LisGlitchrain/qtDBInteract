@@ -20,8 +20,29 @@
    <string>DBI</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout" columnstretch="0,0">
-    <item row="0" column="0" colspan="2">
+   <layout class="QGridLayout" name="gridLayout" columnstretch="0,0,0,0,0">
+    <item row="1" column="3">
+     <widget class="QPushButton" name="deleteRowBtn">
+      <property name="text">
+       <string>Delete row</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="getDataBtn">
+      <property name="text">
+       <string>Get data</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
+     <widget class="QPushButton" name="commitBtn">
+      <property name="text">
+       <string>Commit</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="5">
      <widget class="QTableWidget" name="tableWidget">
       <property name="minimumSize">
        <size>
@@ -35,16 +56,9 @@
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="addRowBtn">
       <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QPushButton" name="getDataBtn">
-      <property name="text">
-       <string>Get data</string>
+       <string>Add row</string>
       </property>
      </widget>
     </item>

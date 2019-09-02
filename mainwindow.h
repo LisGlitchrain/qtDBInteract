@@ -33,14 +33,28 @@ private slots:
 
     void on_actionCloseDB_triggered();
 
+    void on_tableWidget_cellChanged(int row, int column);
+
+    void on_deleteRowBtn_released();
+
+    void on_tableWidget_cellClicked(int row, int column);
+
 private:
     QPushButton* getDataBtn;
     QTableWidget tableWidget;
     QSqlQuery* query;
+    QString updateString;
+    QString insertString;
+    QString deleteString;
+    QPushButton* deleteRowBtn;
+    QPushButton* addRowBtn;
+    QPushButton* commitBtn;
+    int rowSelectedInApp;
+    int columnSelectedInApp;
 public:
     QSqlDatabase db;
 public slots:
-    void setGetDataBtnEnable(bool state);
+    void setBtnEnable(bool state);
 };
 
 #endif // MAINWINDOW_H
