@@ -6,19 +6,15 @@ openDBDialog::openDBDialog(MainWindow *parent) :
     QDialog(parent),
     ui(new Ui::openDBDialog)
 {
-    qDebug() << "step3";
     ui->setupUi(this);
-    qDebug() << "step4";
     userNameQ = ui->userNameEdit;
     passwordQ = ui->passwordEdit;
     hostnameQ = ui->hostnameEdit;
     portQ = ui->portEdit;
     dbNameQ = ui->dbNameEdit;
     portQ->setValidator(new QIntValidator(0,65000));
-    qDebug() << "step5";
     db = parent->db;
     parentWindow = parent;
-    qDebug() << "step6";
 }
 
 openDBDialog::~openDBDialog()
@@ -40,7 +36,8 @@ void openDBDialog::on_buttonBox_accepted()
     db.setDatabaseName(dbNameQ->text());
     if (db.open())
     {
-        parentWindow->setBtnEnable(true);
+        parentWindow->enableAndLoadTableMenu();
+        parentWindow->statusBar->showMessage("DB is opened seccessfully.",5);
         qDebug() << "Db is opened successfully.";
     }
     else {
@@ -49,7 +46,7 @@ void openDBDialog::on_buttonBox_accepted()
         db.setHostName("");
         db.setPort(5432);
         db.setDatabaseName("");
-        qDebug() << "DB opening is faled.";
+        parentWindow->statusBar->showMessage("DB opening is faled.",5);
     }
 
 }

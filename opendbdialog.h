@@ -6,6 +6,7 @@
 #include <QSqlDatabase>
 #include "mainwindow.h"
 #include <QLineEdit>
+#include <QStatusBar>
 
 namespace Ui {
 class openDBDialog;

@@ -11,6 +11,7 @@
 #include <QTableWidget>
 #include <QTableWidgetItem>
 #include <QAction>
+#include <QMenu>
 
 namespace Ui {
 class MainWindow;
@@ -39,9 +40,12 @@ private slots:
 
     void on_tableWidget_cellClicked(int row, int column);
 
+    void on_actionTable_triggered(QString tableName);
+    void handleAddRowBtn();
+
 private:
     QPushButton* getDataBtn;
-    QTableWidget tableWidget;
+    QTableWidget* tableWidget;
     QSqlQuery* query;
     QString updateString;
     QString insertString;
@@ -51,10 +55,16 @@ private:
     QPushButton* commitBtn;
     int rowSelectedInApp;
     int columnSelectedInApp;
+    QList<QList<QTableWidgetItem*>> itemList;
+    QMenu* tableMenu;
+    QString currentTable;
+    QList<QString> tables;
 public:
     QSqlDatabase db;
+    QStatusBar* statusBar;
 public slots:
     void setBtnEnable(bool state);
+    void enableAndLoadTableMenu();
 };
 
 #endif // MAINWINDOW_H
